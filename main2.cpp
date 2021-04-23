@@ -87,23 +87,27 @@ int main (){
     if (opcaoMenu == 4){
         long unsigned int indiceMaior = 0;
         long unsigned int indiceMenor = 0;
-        Estadual estadoMaior;
-        Estadual estadoMenor;
+        string nomeEstadoMaior, nomeEstadoMenor ;
+  //      Estadual estadoMaior(vetorDeDados(informacoesDosEstados[indiceMaior]));
+  //      Estadual estadoMenor(vetorDeDados(informacoesDosEstados[indiceMenor]));
 
         for (indice = 0 ; indice < informacoesDosEstados.size() ; indice++){
 
             Estadual estado(vetorDeDados(informacoesDosEstados[indice]));
-            estadoMaior(vetorDeDados(informacoesDosEstados[indiceMaior]));
-            estadoMenor(vetorDeDados(informacoesDosEstados[indiceMenor]));
+            Estadual estadoMaior(vetorDeDados(informacoesDosEstados[indiceMaior]));
+            Estadual estadoMenor(vetorDeDados(informacoesDosEstados[indiceMenor]));
 
             if (estado.getMediaMovelHoje()/estado.getMediaMovelOntem() > estadoMaior.getMediaMovelHoje()/estadoMaior.getMediaMovelOntem())
                 indiceMaior = indice;
             if (estado.getMediaMovelHoje()/estado.getMediaMovelOntem() < estadoMenor.getMediaMovelHoje()/estadoMenor.getMediaMovelOntem())
                 indiceMenor = indice;
+
+            nomeEstadoMaior = estadoMaior.getNome();
+            nomeEstadoMenor = estadoMenor.getNome();
         }
 
-        cout << endl << "MAIOR MEDIA MOVEL: " << estadoMaior.getNome() << endl ;
-        cout << endl << "MENOR MEDIA MOVEL: " << estadoMenor.getNome() << endl ;
+        cout << endl << "MAIOR ALTA: " << nomeEstadoMaior << endl ;
+        cout << endl << "MAIOR BAIXA: " << nomeEstadoMenor << endl ;
     }
 
 

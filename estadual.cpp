@@ -23,6 +23,8 @@ Estadual::Estadual(vector <string> vetor){
     mediaMovelAntesDeOntem = calcularMedia(ANTES_DE_ONTEM);
     mediaMovelOntem = calcularMedia(ONTEM);
     mediaMovelHoje = calcularMedia(HOJE);
+
+    altaNosCasos = calcularAlta();
 }
 
 double Estadual::calcularMedia (int dia){
@@ -31,6 +33,10 @@ double Estadual::calcularMedia (int dia){
     for (indice = dia ; indice < NUMERO_DE_DIAS_MEDIA_MOVEL + dia ; indice++)
         soma += numeroObitos[indice];
     return (soma/NUMERO_DE_DIAS_MEDIA_MOVEL);
+}
+
+double Estadual::calcularAlta(){
+    return mediaMovelHoje/mediaMovelOntem ;
 }
 
 string Estadual::getNome(){
@@ -47,5 +53,9 @@ double Estadual::getMediaMovelOntem(){
 
 double Estadual::getMediaMovelHoje(){
     return mediaMovelHoje;
+}
+
+double Estadual::getAltaNosCasos(){
+    return altaNosCasos;
 }
 

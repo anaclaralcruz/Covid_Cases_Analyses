@@ -18,12 +18,15 @@ class Estadual {
         double getMediaMovelAntesOntem();
         double getMediaMovelOntem();
         double getMediaMovelHoje();
+        double getAltaNosCasos() ;
 
     private:
         double mediaMovelHoje;
         double mediaMovelOntem;
         double mediaMovelAntesDeOntem;
+        double altaNosCasos ;
         double calcularMedia(int);
+        double calcularAlta();
         string nome;
         vector <int> numeroObitos;
 };
