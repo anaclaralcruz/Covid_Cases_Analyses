@@ -25,7 +25,7 @@ vector <string> readLines (string arquivo){
 
 // Le uma string (linha do arquivo) e retorna um vetor com os dados
 
-vector <string> vetorDeDados (string linha) {
+/*vector <string> vetorDeDados (string linha) {
     string dado;
     long unsigned int i ;
     vector <string> vetor;
@@ -41,7 +41,7 @@ vector <string> vetorDeDados (string linha) {
     }
     return vetor;
 
-}
+}*/
 
 // Recebe uma lista do arquivo texto e devolve uma lista com o nome dos estados
 vector <string> nomesDosEstados (vector <string> vetor){

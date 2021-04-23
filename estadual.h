@@ -6,9 +6,9 @@
 
 #include <vector>
 #include <string>
-//#include <iostream>
+#include <iostream>
 
-using namespace std;
+using namespace std ;
 
 class Estadual {
     public:
@@ -19,6 +19,7 @@ class Estadual {
         double getMediaMovelOntem();
         double getMediaMovelHoje();
         double getAltaNosCasos() ;
+        vector <int> getNumeroObitos() ;
 
     private:
         double mediaMovelHoje;

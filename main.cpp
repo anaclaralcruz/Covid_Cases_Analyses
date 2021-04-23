@@ -5,7 +5,7 @@
     // Analise da media movel dos casos de COVID no Brasil
 
 #include "files.h"
-#include "estadual.h"
+#include "nacional.h"
 
 #include <iostream>
 #include <string>
@@ -24,8 +24,8 @@ int main (){
     // Menu de entrada:
     cout << " ______________________________________________________" << endl;
     cout << "| 1 | Media movel de cada estado nos ultimos 7 dias   |" << endl;
-    cout << "| 2 | Evolucao dos casos por estado                   |" << endl;
-    cout << "| 3 | Evolucao dos casos no Brasil                    |" << endl;
+    cout << "| 2 | Evolucao dos obitos por estado                  |" << endl;
+    cout << "| 3 | Evolucao dos obitos no Brasil                   |" << endl;
     cout << "| 4 | Estado com maior alta e maior baixa             |" << endl;
     cout << "| 5 | Numero de obitos acumulados                     |" << endl;
     cout << "|_____________________________________________________|" << endl;
@@ -38,7 +38,10 @@ int main (){
     }
 
     // Ler os dados do arquivo de entrada
-    informacoesDosEstados = readLines(ARQUIVO_DE_ENTRADA); 
+    informacoesDosEstados = readLines(ARQUIVO_DE_ENTRADA);
+
+    // Criar classe Nacional a partir dos dados de entrada
+    Nacional brasil(informacoesDosEstados) ; 
 
     // Opcao 1
     if (opcaoMenu == 1){

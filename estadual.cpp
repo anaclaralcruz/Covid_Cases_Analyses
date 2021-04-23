@@ -17,7 +17,7 @@
 
 Estadual::Estadual(vector <string> vetor){
     nome = vetor [0] ;
-    for (long unsigned int indice = 1; indice < vetor.size (); indice++)
+    for (long unsigned int indice = 1; indice < vetor.size() ; indice++)
         numeroObitos.push_back (stoi (vetor[indice]));
 
     mediaMovelAntesDeOntem = calcularMedia(ANTES_DE_ONTEM);
@@ -59,3 +59,6 @@ double Estadual::getAltaNosCasos(){
     return altaNosCasos;
 }
 
+vector <int> Estadual::getNumeroObitos() {
+    return numeroObitos ;
+}
