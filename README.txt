@@ -17,12 +17,12 @@ as seguintes funcionalidades:
 
 ---------------------------------- MANUAL DO PROGRAMA ---------------------------------------
 
-COMPILACAO
-    A compilacao deve ser feita atraves do comando 'make'
-
 ULTILIZACAO
-    Ao iniciar o programa, um menu aparecera na tela com as opcoes, insira o numero correspondente
-    a opcao que deseja. O resultado aparecera na tela.
+    - Abrir pasta
+    - Compilar e linkeditar o programa usando o comando "make"
+    - Inicializar o executavel "./trabalho"
+    (um menu aparecera na tela com as opcoes)
+    - insira o numero correspondente a opcao que deseja, o resultado aparecera na tela.
 
 ENTRADA DE DADOS:
     A entrada deve ser feita atraves de um Arquivo .txt em que cada linha contem os dados de um Estado
