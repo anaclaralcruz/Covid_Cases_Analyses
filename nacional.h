@@ -27,6 +27,9 @@ class Nacional {
 
         // Printa na tela o numero acumulado de obitos
         int getNumeroObitosNacional();
+
+        //Printa na tela os estados com maior alta e maior baixa
+        void maiorAltaMaiorBaixa();
         
     private:
         vector <Estadual> estados;

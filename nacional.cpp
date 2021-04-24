@@ -133,3 +133,45 @@ double Nacional::calcularMedia (int dia){
         soma += numeroObitosNacional[indice];
     return (soma/NUMERO_DE_DIAS_MEDIA_MOVEL);
 }
+
+void Nacional::maiorAltaMaiorBaixa(){
+    long unsigned int indice ;
+    long unsigned int indiceMaior = 0;
+    long unsigned int indiceMenor = 0;
+    string nomeEstadoMaior, nomeEstadoMenor ;
+    double maiorAlta, maiorBaixa ;
+
+    for (indice = 0 ; indice < estados.size() ; indice++){
+        
+        Estadual estado = estados[indice];
+        Estadual estadoMaior = estados[indiceMaior];
+        Estadual estadoMenor = estados[indiceMenor];
+
+        if (estado.getAltaNosCasos() > estadoMaior.getAltaNosCasos())
+            indiceMaior = indice;
+        if (estado.getAltaNosCasos() < estadoMenor.getAltaNosCasos())
+            indiceMenor = indice;
+
+        estadoMaior = estados[indiceMaior];
+        estadoMenor = estados[indiceMenor];
+
+        nomeEstadoMaior = estadoMaior.getNome();
+        nomeEstadoMenor = estadoMenor.getNome();
+
+        maiorAlta = estadoMaior.getAltaNosCasos();
+        maiorBaixa = estadoMenor.getAltaNosCasos();
+    }
+    
+    cout << endl << "MAIOR ALTA: ";
+    if (maiorAlta > 1)
+        cout << nomeEstadoMaior << "\t+" << maiorAlta * 100 - 100 << "%" << endl  ;
+    else
+        cout << "Nenhum estado teve alta" ;
+
+    cout << endl << "MAIOR BAIXA: " ;
+    if (maiorBaixa < 1)
+        cout << nomeEstadoMenor << "\t-" << 100 - (maiorBaixa * 100) << "%"<< endl ;
+    else
+        cout << "Nenhum estado teve baixa" ;
+}
+

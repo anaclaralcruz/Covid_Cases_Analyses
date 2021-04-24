@@ -31,6 +31,7 @@ int main (){
     cout << "O que deseja? (digite o numero) -> ";
     cin >> opcaoMenu ;
     
+    // Checar entrada
     if (opcaoMenu < 1 || opcaoMenu > 5){
         cout << endl << endl << endl << "ENTRADA INVALIDA, digite um numero de 1 a 5" << endl;
         main();
@@ -42,51 +43,15 @@ int main (){
     // Criar classe Nacional a partir dos dados de entrada
     Nacional brasil(informacoesDosEstados) ; 
 
-    // Opcao 1
     if (opcaoMenu == 1)
         brasil.mediaMovelEstados();
-
-    // Opcao 2
     if (opcaoMenu == 2)
         brasil.evolucaoDosObitosEstados();
-
-    // Opcao 3
     if (opcaoMenu == 3)
         brasil.evolucaoDosObitosBrasil();
-
-/*
-
-    //Opcao 4
-    if (opcaoMenu == 4){
-        long unsigned int indiceMaior = 0;
-        long unsigned int indiceMenor = 0;
-        string nomeEstadoMaior, nomeEstadoMenor ;
-  //      Estadual estadoMaior(vetorDeDados(informacoesDosEstados[indiceMaior]));
-  //      Estadual estadoMenor(vetorDeDados(informacoesDosEstados[indiceMenor]));
-
-        for (indice = 0 ; indice < informacoesDosEstados.size() ; indice++){
-
-            Estadual estado(vetorDeDados(informacoesDosEstados[indice]));
-            Estadual estadoMaior(vetorDeDados(informacoesDosEstados[indiceMaior]));
-            Estadual estadoMenor(vetorDeDados(informacoesDosEstados[indiceMenor]));
-
-            if (altaEstado > estadoMaior.getAltaNosCasos())
-                indiceMaior = indice;
-            if (altaEstado < estadoMenor.getAltaNosCasos())
-                indiceMenor = indice;
-
-            nomeEstadoMaior = estadoMaior.getNome();
-            nomeEstadoMenor = estadoMenor.getNome();
-
-            maiorAlta = estadoMaior.getAltaNosCasos();
-            maiorBaixa = estadoMenor.getAltaNosCasos();
-        }
-
-        cout << endl << "MAIOR ALTA: " << nomeEstadoMaior << endl ;
-        cout << endl << "MAIOR BAIXA: " << nomeEstadoMenor << endl ;
-    }
-
-*/
+    if (opcaoMenu == 4)
+        brasil.maiorAltaMaiorBaixa();
+       
     cout << endl;
     return 0;
 }
