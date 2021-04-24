@@ -26,7 +26,7 @@ class Nacional {
         void evolucaoDosObitosBrasil();
 
         // Printa na tela o numero acumulado de obitos
-        int getNumeroObitosNacional();
+        void getNumeroObitosNacional();
 
         //Printa na tela os estados com maior alta e maior baixa
         void maiorAltaMaiorBaixa();

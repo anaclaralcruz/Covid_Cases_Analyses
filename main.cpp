@@ -51,6 +51,8 @@ int main (){
         brasil.evolucaoDosObitosBrasil();
     if (opcaoMenu == 4)
         brasil.maiorAltaMaiorBaixa();
+    if (opcaoMenu == 5)
+        brasil.getNumeroObitosNacional();
        
     cout << endl;
     return 0;

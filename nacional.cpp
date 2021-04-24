@@ -68,14 +68,12 @@ void Nacional::mediaMovelEstados(){
 
 }
 
-
-
-int Nacional::getNumeroObitosNacional(){
+void Nacional::getNumeroObitosNacional(){
     int numero = 0 ;
     long unsigned int indice ;
     for (indice = 0 ; indice < numeroObitosNacional.size() ; indice++)
         numero += numeroObitosNacional[indice] ; 
-    return numero;
+    cout << "Infelizmente, o pais acumula " << numero << " obitos" << endl;
 }
 
 void Nacional::evolucaoDosObitosEstados(){
@@ -113,7 +111,7 @@ void Nacional::evolucaoDosObitosBrasil(){
     cout << endl << "A media movel de obitos no pais esta " ;
     if (calcularAlta() > 1.15)
         cout << "EM ALTA" << endl ;
-    if (calcularAlta() > 1.15)
+    else if (calcularAlta() < 0.85)
         cout << "EM BAIXA" << endl ;
     else
         cout << "ESTAVEL" << endl ;
@@ -164,13 +162,13 @@ void Nacional::maiorAltaMaiorBaixa(){
     
     cout << endl << "MAIOR ALTA: ";
     if (maiorAlta > 1)
-        cout << nomeEstadoMaior << "\t+" << maiorAlta * 100 - 100 << "%" << endl  ;
+        cout << nomeEstadoMaior << "\t+" << maiorAlta * 100 - 100 << " %" << endl  ;
     else
         cout << "Nenhum estado teve alta" ;
 
     cout << endl << "MAIOR BAIXA: " ;
     if (maiorBaixa < 1)
-        cout << nomeEstadoMenor << "\t-" << 100 - (maiorBaixa * 100) << "%"<< endl ;
+        cout << nomeEstadoMenor << "\t-" << 100 - (maiorBaixa * 100) << " %"<< endl ;
     else
         cout << "Nenhum estado teve baixa" ;
 }

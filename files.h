@@ -13,6 +13,3 @@
 using namespace std;
 
 vector <string> readLines (string);
-vector <string> vetorDeDados (string linha);
-vector <string> nomesDosEstados (vector <string>);
-int procurarEstado(string, vector <string>); 
