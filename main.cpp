@@ -18,7 +18,6 @@ using namespace std ;
 
 int main (){
     int opcaoMenu ;
-    long unsigned int indice ;
     vector <string> informacoesDosEstados ;
 
     // Menu de entrada:
@@ -44,47 +43,18 @@ int main (){
     Nacional brasil(informacoesDosEstados) ; 
 
     // Opcao 1
-    if (opcaoMenu == 1){
-        cout << endl << "NOME\t" << "ANTES ONTEM\t" << "ONTEM\t\t" << "HOJE" << endl ;
-
-        for (indice = 0 ; indice < informacoesDosEstados.size() ; indice++){
-            Estadual estado(vetorDeDados(informacoesDosEstados[indice]));
-            cout << endl << estado.getNome() << "\t"
-                         << fixed << estado.getMediaMovelAntesOntem() << "\t"
-                         << estado.getMediaMovelOntem() << "\t"
-                         << estado.getMediaMovelHoje() << endl ;
-    }
-    }
+    if (opcaoMenu == 1)
+        brasil.mediaMovelEstados();
 
     // Opcao 2
-    if (opcaoMenu == 2){
-        vector <Estadual> emAlta ;
-        vector <Estadual> emBaixa ;
-        vector <Estadual> estavel ;
+    if (opcaoMenu == 2)
+        brasil.evolucaoDosObitosEstados();
 
-        for (indice = 0 ; indice < informacoesDosEstados.size() ; indice++){
-            Estadual estado(vetorDeDados(informacoesDosEstados[indice]));
+    // Opcao 3
+    if (opcaoMenu == 3)
+        brasil.evolucaoDosObitosBrasil();
 
-            if (estado.getAltaNosCasos() > 1.15)
-                emAlta.push_back(estado);
-            if (estado.getAltaNosCasos() < 0.85)
-                emBaixa.push_back(estado);
-            else
-                estavel.push_back(estado);
-    }
-        cout << "EM ALTA:  ";
-        for (indice = 0 ; indice < emAlta.size() ; indice++)
-            cout << emAlta[indice].getNome() << "  ";
-
-        cout << endl << "EM BAIXA:  ";
-        for (indice = 0 ; indice < emBaixa.size() ; indice++)
-            cout << emBaixa[indice].getNome() << "  ";
-        
-        cout << endl << "ESTAVEL:  ";
-        for (indice = 0 ; indice < estavel.size() ; indice++)
-            cout << estavel[indice].getNome() << "  ";
-
-    }
+/*
 
     //Opcao 4
     if (opcaoMenu == 4){
@@ -116,7 +86,7 @@ int main (){
         cout << endl << "MAIOR BAIXA: " << nomeEstadoMenor << endl ;
     }
 
-
+*/
     cout << endl;
     return 0;
 }

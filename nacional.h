@@ -31,7 +31,9 @@ class Nacional {
     private:
         vector <Estadual> estados;
         vector <int> numeroObitosNacional ;
-
+        // Calcula alta nos casos
+        double calcularAlta();
+        double calcularMedia(int);
         // Le uma string (linha do arquivo) e retorna um vetor com os dados
         vector <string> vetorDeDados (string linha) ;
 };

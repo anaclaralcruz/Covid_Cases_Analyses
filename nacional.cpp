@@ -5,7 +5,11 @@
     // Analise da media movel dos casos de COVID no Brasil
 
 #include "nacional.h"
-//#include "estadual.h"
+
+#define HOJE    0
+#define ONTEM   1
+
+#define NUMERO_DE_DIAS_MEDIA_MOVEL  7 
 
 Nacional::Nacional(vector <string> informacoesDosEstados){
     long unsigned indice, indice2 ;
@@ -50,10 +54,82 @@ vector <string> Nacional::vetorDeDados (string linha) {
 
 }
 
+void Nacional::mediaMovelEstados(){
+    long unsigned indice ;
+    cout << endl << "NOME\t" << "ANTES ONTEM\t" << "ONTEM\t\t" << "HOJE" << endl ;
+
+    for (indice = 0 ; indice < estados.size() ; indice++){
+        Estadual estado = estados[indice] ;
+        cout << endl << estado.getNome() << "\t"
+            << fixed << estado.getMediaMovelAntesOntem() << "\t"
+                    << estado.getMediaMovelOntem() << "\t"
+                    << estado.getMediaMovelHoje() << endl ;
+    }
+
+}
+
+
+
 int Nacional::getNumeroObitosNacional(){
     int numero = 0 ;
     long unsigned int indice ;
     for (indice = 0 ; indice < numeroObitosNacional.size() ; indice++)
         numero += numeroObitosNacional[indice] ; 
     return numero;
+}
+
+void Nacional::evolucaoDosObitosEstados(){
+    long unsigned indice ;
+    vector <Estadual> emAlta ;
+    vector <Estadual> emBaixa ;
+    vector <Estadual> estavel ;
+    
+    for (indice = 0 ; indice < estados.size() ; indice++){
+        Estadual estado = estados[indice] ;
+
+        if (estado.getAltaNosCasos() > 1.15)
+            emAlta.push_back(estado);
+        if (estado.getAltaNosCasos() < 0.85)
+            emBaixa.push_back(estado);
+        else
+            estavel.push_back(estado);
+    }
+        //Printar os resultados:
+        cout << endl << "EM ALTA:  ";
+        for (indice = 0 ; indice < emAlta.size() ; indice++)
+            cout << emAlta[indice].getNome() << "  ";
+
+        cout << endl << "EM BAIXA:  ";
+        for (indice = 0 ; indice < emBaixa.size() ; indice++)
+            cout << emBaixa[indice].getNome() << "  ";
+        
+        cout << endl << "ESTAVEL:  ";
+        for (indice = 0 ; indice < estavel.size() ; indice++)
+            cout << estavel[indice].getNome() << "  ";
+
+}
+
+void Nacional::evolucaoDosObitosBrasil(){
+    cout << endl << "A media movel de obitos no pais esta " ;
+    if (calcularAlta() > 1.15)
+        cout << "EM ALTA" << endl ;
+    if (calcularAlta() > 1.15)
+        cout << "EM BAIXA" << endl ;
+    else
+        cout << "ESTAVEL" << endl ;
+}
+
+
+double Nacional::calcularAlta(){
+    float mediaHoje = calcularMedia(HOJE);
+    float mediaOntem = calcularMedia(ONTEM);
+    return mediaHoje/mediaOntem ;
+}
+
+double Nacional::calcularMedia (int dia){
+    double soma = 0;
+    int indice ;
+    for (indice = dia ; indice < NUMERO_DE_DIAS_MEDIA_MOVEL + dia ; indice++)
+        soma += numeroObitosNacional[indice];
+    return (soma/NUMERO_DE_DIAS_MEDIA_MOVEL);
 }
