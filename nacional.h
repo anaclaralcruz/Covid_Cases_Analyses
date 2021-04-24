@@ -4,6 +4,9 @@
 /*  TRABALHO 1 - LING PROG  */
     // Analise da media movel dos casos de COVID no Brasil
 
+/* "nacional.h" ------------------------------------------------- */
+/* Inicia a classe Nacional */
+
 #include <vector>
 #include <string>
 #include "estadual.h"

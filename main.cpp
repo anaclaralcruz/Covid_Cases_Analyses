@@ -4,6 +4,9 @@
 /*  TRABALHO 1 - LING PROG  */
     // Analise da media movel dos casos de COVID no Brasil
 
+/* "main.cpp" ------------------------------------------------- */
+/* Funcao principal que contem o menu do programa */
+
 #include "files.h"
 #include "nacional.h"
 
@@ -12,7 +15,7 @@
 #include <stdio.h>
 #include <iomanip>
 
-#define ARQUIVO_DE_ENTRADA  "Teste.txt"
+#define ARQUIVO_DE_ENTRADA  "dados.txt"
 
 using namespace std ;
 

@@ -4,12 +4,22 @@
 /*  TRABALHO 1 - LING PROG  */
     // Analise da media movel dos casos de COVID no Brasil
 
+
+/* "nacional.cpp" ------------------------------------------------- */
+/* contem os metodos referentes a classe Nacional*/
+
+
 #include "nacional.h"
 
 #define HOJE    0
 #define ONTEM   1
 
 #define NUMERO_DE_DIAS_MEDIA_MOVEL  7 
+
+
+// Construtor da classe
+/* Recebe um vetor de strings com as linhas do arquivo de entrada. Cada elemento representa um estado 
+    como uma string do tipo "RJ 19 71 71 83" */
 
 Nacional::Nacional(vector <string> informacoesDosEstados){
     long unsigned indice, indice2 ;
@@ -36,6 +46,10 @@ Nacional::Nacional(vector <string> informacoesDosEstados){
     
 }
 
+// Funcao para manipulacao do arquivo de entrada
+/* Recebe uma string que representa um estado e a transforma em um vetor 
+ex.: se a entrada for "RJ 1 1 1 1 1" a saida sera [RJ, 1, 1, 1, 1, 1]*/ 
+
 vector <string> Nacional::vetorDeDados (string linha) {
     string dado;
     long unsigned int i ;
@@ -54,6 +68,7 @@ vector <string> Nacional::vetorDeDados (string linha) {
 
 }
 
+// Printa a media movel de cada estado
 void Nacional::mediaMovelEstados(){
     long unsigned indice ;
     cout << endl << "NOME\t" << "ANTES ONTEM\t" << "ONTEM\t\t" << "HOJE" << endl ;
@@ -68,6 +83,7 @@ void Nacional::mediaMovelEstados(){
 
 }
 
+// Printa na tela o numero acumulado de obitos
 void Nacional::getNumeroObitosNacional(){
     int numero = 0 ;
     long unsigned int indice ;
@@ -76,6 +92,7 @@ void Nacional::getNumeroObitosNacional(){
     cout << "Infelizmente, o pais acumula " << numero << " obitos" << endl;
 }
 
+// Printa na tela os estados de acordo com sua evolucao
 void Nacional::evolucaoDosObitosEstados(){
     long unsigned indice ;
     vector <Estadual> emAlta ;
@@ -107,6 +124,7 @@ void Nacional::evolucaoDosObitosEstados(){
 
 }
 
+// Printa na tela a evolucao dos obitos no pais
 void Nacional::evolucaoDosObitosBrasil(){
     cout << endl << "A media movel de obitos no pais esta " ;
     if (calcularAlta() > 1.15)
@@ -117,13 +135,14 @@ void Nacional::evolucaoDosObitosBrasil(){
         cout << "ESTAVEL" << endl ;
 }
 
-
+// Calcula a relacao entre a media movel no dia atual e no dia anterior
 double Nacional::calcularAlta(){
     float mediaHoje = calcularMedia(HOJE);
     float mediaOntem = calcularMedia(ONTEM);
     return mediaHoje/mediaOntem ;
 }
 
+// Calcula media movel
 double Nacional::calcularMedia (int dia){
     double soma = 0;
     int indice ;
@@ -132,6 +151,7 @@ double Nacional::calcularMedia (int dia){
     return (soma/NUMERO_DE_DIAS_MEDIA_MOVEL);
 }
 
+// Printa na tela os estados com maior alta e maior baixa em relacao ao dia anterior
 void Nacional::maiorAltaMaiorBaixa(){
     long unsigned int indice ;
     long unsigned int indiceMaior = 0;
@@ -172,4 +192,3 @@ void Nacional::maiorAltaMaiorBaixa(){
     else
         cout << "Nenhum estado teve baixa" ;
 }
-

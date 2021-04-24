@@ -4,6 +4,9 @@
 /*  TRABALHO 1 - LING PROG  */
     // Analise da media movel dos casos de COVID no Brasil
 
+/* "estadual.cpp" ------------------------------------------------- */
+/* contem os metodos referentes a classe Estadual */
+
 #include "estadual.h"
 
 #define OK                          0
@@ -27,6 +30,7 @@ Estadual::Estadual(vector <string> vetor){
     altaNosCasos = calcularAlta();
 }
 
+// Calcula a media movel a partir de um dia
 double Estadual::calcularMedia (int dia){
     double soma = 0;
     int indice ;
@@ -35,6 +39,7 @@ double Estadual::calcularMedia (int dia){
     return (soma/NUMERO_DE_DIAS_MEDIA_MOVEL);
 }
 
+// Calcula a relacao de casos entre ontem e hoje
 double Estadual::calcularAlta(){
     return mediaMovelHoje/mediaMovelOntem ;
 }
